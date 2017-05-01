@@ -24,7 +24,6 @@ brew cask install cheatsheet
 brew cask install iterm2
 brew cask install scenebuilder
 brew cask install sequel-pro
-brew cask install mamp
 brew cask install transmission
 brew cask install tunnelblick
 brew cask install visual-studio-code
@@ -43,3 +42,4 @@ brew cask install qlstephen
 brew cask install imageoptim
 brew cask install dash
 brew cask install adobe-reader
+brew cask install mamp

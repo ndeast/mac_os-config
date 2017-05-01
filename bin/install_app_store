@@ -11,6 +11,18 @@ if ! command -v mas > /dev/null; then
   exit 1
 fi
 
+# Magnet
+mas install 441258766
+
+# Telegram
+mas install 747648890
+
+# Stuffit Expander
+mas install 405580712
+
+# Key Codes
+mas install 414568915
+
 # GarageBand
 mas install 682658836
 
@@ -34,16 +46,4 @@ mas install 803453959
 
 # XCode
 mas install 497799835
-
-# Magnet
-mas install 441258766
-
-# Telegram
-mas install 747648890
-
-# Stuffit Expander
-mas install 405580712
-
-# Key Codes
-mas install 414568915
 

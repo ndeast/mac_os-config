@@ -2,15 +2,17 @@ Script run order:
 
 1. apply_basic_settings
 2. apply_default_settings
+        Reboot
 3. install_homebrew_formulas
 4. install_homebrew_casks
 5. install_app_store
-6. setup_software
-7. install_jetbrains
+6. Login to Dropbox
+7. setup_software
+8. install_jetbrains
 
 After Scripts have finished running, complete remaining tasks:
 
-1. setup iTerm2 preference file (~/Dropbox/Apps/iTerm2)
+1. setup iTerm2 preference file (~/Dropbox/Apps/iTerm2) (restart after setting file)
 2. generate ssh keys/link to github
 3. install MS Office (office.com)
 4. Add Licenses and logins to software
@@ -18,3 +20,5 @@ After Scripts have finished running, complete remaining tasks:
 6. Install Dash Docs
 7. Ensure proper git is being used (which git)
 8. Sign into Telegram
+9. Enable accessibility options
+10. Sublime Text Package Manager: (https://packagecontrol.io/installation)
