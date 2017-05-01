@@ -1,0 +1,20 @@
+Script run order:
+
+1. apply_basic_settings
+2. apply_default_settings
+3. install_homebrew_formulas
+4. install_homebrew_casks
+5. install_app_store
+6. setup_software
+7. install_jetbrains
+
+After Scripts have finished running, complete remaining tasks:
+
+1. setup iTerm2 preference file (~/Dropbox/Apps/iTerm2)
+2. generate ssh keys/link to github
+3. install MS Office (office.com)
+4. Add Licenses and logins to software
+5. Bartender Settings
+6. Install Dash Docs
+7. Ensure proper git is being used (which git)
+8. Sign into Telegram

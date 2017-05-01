@@ -2,45 +2,67 @@
 
 # DESCRIPTION
 # Sets up and launches (if necessary) installed software.
+# Creates symlinks for any Dropbox synced apps
+
+# Get admin privledges
+sudo -v
+
+# Open Applications to generate system files
+
+open -a Atom
+open -a Brackets
+open -a Sublime\ Text
+
+
+# Fonts
+cp -r ~/Dropbox/Fonts/ ~/Library/Fonts
+
+# Powerline Fonts
+cd ~/Desktop
+
+git clone https://github.com/powerline/fonts.git
+
+cd fonts
+./install.sh
+
+cd ..
+rm -rf fonts
+
+Pip install —user powerline-status
 
 # Bash
 sudo bash -c "printf '/usr/local/bin/bash\n' >> /etc/shells"
+rm ~/.bash_profile
+ln -s ~/Dropbox/dotfiles/.bash_profile
 
-# Bash Completion
-chsh -s /usr/local/bin/bash
+# Vim
+rm -r ~/.vim
+rm ~/.vimrc
+ln -s ~/Dropbox/dotfiles/.vim ~/.vim
+ln -s ~/Dropbox/dotfiles/.vimrc ~/.vimrc
 
-# Homebrew
-(
-  cd /usr/local/Homebrew
-  git config --local core.hooksPath /dev/null
-)
+# oh-my-zsh
+rm -r "~/.oh-my-zsh"
+rm "~/.zshrc"
+ln -s "~/Dropbox/dotfiles/.oh-my-zsh" "~/.oh-my-zsh"
+ln -s "~/Dropbox/dotfiles/.zshrc" "~/.zshrc"
 
-# Ruby
-printf "%s\n" "---" > "$HOME/.gemrc"
-printf "%s\n" "gem: --no-document" >> "$HOME/.gemrc"
-printf "%s\n" "$MRI" > "$HOME/.ruby-version"
-git clone https://github.com/bkuhlmann/ruby_setup.git
-(
-  cd ruby_setup
-  git checkout $REPO_RUBY_SETUP
-  /usr/local/bin/ruby-install "ruby-$MRI"
-  bin/run i
-)
-rm -rf ruby_setup
+# Atom
+rm -r "~/.atom"
+ln -s "~/Dropbox/Apps/Atom" "~/.atom"
 
-# Yarn
-install_git_project "https://github.com/bkuhlmann/yarn_setup.git" $REPO_YARN_SETUP "yarn_setup" "bin/run i"
+# Brackets
+rm ~/Library/Application\ Support/Brackets/brackets.json
+rm -r ~/Library/Application\ Support/Brackets/extensions/user
 
-# Go
-install_git_project "https://github.com/bkuhlmann/go_setup.git" $REPO_GO_SETUP "go_setup" "bin/run i"
+ln -s ~/Dropbox/Apps/Brackets/brackets.json ~/Library/Application\ Support/Brackets/brackets.json
+ln -s ~/Dropbox/Apps/Brackets/user ~/Library/Application\ Support/Brackets/extensions/user
 
-# Sublime Text Setup
-if [ ! -e "/usr/bin/sublime" ]; then
-  sudo ln -sv "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/sublime
-fi
-install_git_project "https://github.com/bkuhlmann/sublime_text_setup.git" $REPO_SUBLIME_TEXT_SETUP "sublime_text_setup" "bin/run i"
+# Sublime Text 3
+sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/bin/subl
+cd ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/
+rm -r User
+ln -s ~/Dropbox/Sublime/User
 
-# Dotfiles
-rm -f $HOME/.bash_profile
-install_git_project "https://github.com/bkuhlmann/dotfiles.git" $REPO_DOTFILES "dotfiles" "bin/run i"
-source $HOME/.bashrc
+
+

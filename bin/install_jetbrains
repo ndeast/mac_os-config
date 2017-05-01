@@ -1,0 +1,13 @@
+#! /usr/bin/env bash
+
+# DESCRIPTION
+# Installs Jetbrains software.
+
+# EXECUTION
+brew cask install intellij-idea
+brew cask install pycharm
+brew cask install android-studio
+brew cask install appcode
+brew cask install webstorm
+brew cask install clion
+
