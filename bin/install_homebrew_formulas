@@ -37,11 +37,8 @@ brew install git
 # Mac App Store CLI
 brew install mas
 
-# Namebench
-brew install namebench
-
-# Network Grep
-brew install ngrep
+# CocoaPods
+brew install cocoapods
 
 # Node
 brew install node

@@ -100,8 +100,8 @@ printf "Keyboard - Enable keyboard access for all controls\n"
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
 printf "Keyboard - Set a fast keyboard repeat rate\n"
-defaults write NSGlobalDomain KeyRepeat -int 1
-defaults write NSGlobalDomain InitialKeyRepeat -int 10
+defaults write NSGlobalDomain KeyRepeat -int 2
+defaults write NSGlobalDomain InitialKeyRepeat -int 30
 
 printf "Keyboard - Disable press-and-hold for keys in favor of key repeat\n"
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
@@ -121,8 +121,11 @@ defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
 printf "Bluetooth - Increase sound quality for headphones/headsets\n"
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
 
-printf "Dock - Remove all default app icons\n"
-defaults write com.apple.dock persistent-apps -array
+read -p "Remove All Dock Icons (y/n)? " dockIcons
+if [[ "$dockIcons" == "y" ]]; then
+  defaults write com.apple.dock persistent-apps -array
+  printf "%s\n" "Dock Items Removed."
+fi
 
 printf "Dock - Automatically hide and show\n"
 defaults write com.apple.dock autohide -bool true
@@ -264,8 +267,4 @@ defaults write com.apple.dock minimize-to-application -bool true
 # Disable Dashboard
 defaults write com.apple.dashboard mcx-disabled -bool true
 
-# Make Dock icons of hidden applications translucent
-defaults write com.apple.dock showhidden -bool true
-
 printf "Done. Please Restart your computer."
-
