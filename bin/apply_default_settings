@@ -267,4 +267,7 @@ defaults write com.apple.dock minimize-to-application -bool true
 # Disable Dashboard
 defaults write com.apple.dashboard mcx-disabled -bool true
 
+printf "Disable Mouse Acceleration"
+defaults write .GlobalPreferences com.apple.mouse.scaling -1
+
 printf "Done. Please Restart your computer."
